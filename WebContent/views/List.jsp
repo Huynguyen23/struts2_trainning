@@ -28,13 +28,21 @@ table.list thead {
 </style>
 </head>
 <body>
-  <s:form id="studentForm" class="studentForm" theme="simple">
+  <s:label>PRODUCT LIST</s:label>
+
+  <br/>
+  <s:form id="productForm" class="productForm" theme="simple">
+    <div class="control-btn">
+      <s:submit name="new" value="New" action ="new"
+                onclick="this.form.action='new'" />
+    </div>
     <div class="error-msg">
       <s:actionerror />
     </div>
     <table class="list">
       <thead>
         <tr>
+          <th>Edit</th>
           <th>Name</th>
         </tr>
       </thead>
@@ -42,7 +50,7 @@ table.list thead {
       <tbody>
         <s:iterator value="productList" id="product" status="pd">
           <tr>
-            <td><s:submit name="detail" value="Detail"/></td>
+          <td><s:submit name="edit" value="Edit" onclick="this.form.action='edit'"></s:submit></td>
             <td><s:property value="#product.name" /></td>
 
             <s:hidden name="productList[%{#pd.index}].name"

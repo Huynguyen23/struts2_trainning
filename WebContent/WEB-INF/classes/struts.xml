@@ -4,16 +4,36 @@
    "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
 <constant name="struts.devMode" value="true" />
-   <package name="helloworld" extends="struts-default">
+   <package name="struts2" extends="struts-default">
 
-      <action name = "index">
-         <result >/index.jsp</result>
+      <action name = "index" class="com.trainning.struts2.action.list.ListInitAction" method="excute">
+         <result>views/List.jsp</result>
       </action>
 
-      <action name="save"
-            class="com.demo.struts2.RegisterAction"
-            method="execute">
-            <result name="success">/RegisterForm.jsp</result>
+      <action name = "new" class="com.trainning.struts2.action.list.ListForwardAction" method="new_action">
+         <result type="redirectAction">new_action</result>
       </action>
+
+      <action name = "edit" class="com.trainning.struts2.action.list.ListForwardAction" method="edit_action">
+         <result type="redirectAction">edit_action</result>
+      </action>
+
+      <action name = "new_action" class="com.trainning.struts2.action.news.NewInitAction" method="excute">
+         <result name="success">views/New.jsp</result>
+      </action>
+
+      <action name = "edit_action" class="com.trainning.struts2.action.edit.EditInitAction" method="excute">
+         <result name="success">views/Edit.jsp</result>
+      </action>
+
+      <action name = "product_insert" class="com.trainning.struts2.action.news.NewRegisterAction" method="excute">
+         <result type="redirectAction">list_redisplay</result>
+      </action>
+
+      <action name = "list_redisplay" class="com.trainning.struts2.action.list.ListRedisplayAction" method="excute">
+         <result>views/List.jsp</result>
+      </action>
+
+
    </package>
 </struts>

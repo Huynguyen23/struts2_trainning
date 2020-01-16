@@ -15,9 +15,14 @@
    <filter>
       <filter-name>struts2</filter-name>
       <filter-class>
-         org.apache.struts2.dispatcher.FilterDispatcher
+         org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
       </filter-class>
    </filter>
+
+   <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/somewhere-else/root-context.xml</param-value>
+    </context-param>
 
    <filter-mapping>
       <filter-name>struts2</filter-name>

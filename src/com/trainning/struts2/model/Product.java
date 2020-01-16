@@ -29,6 +29,12 @@ public class Product implements Serializable {
         this.isSale = isSale;
     }
 
+    public Product() {
+        this.id = 0;
+        this.name = "";
+        this.price = "";
+    }
+
     public int getId() {
         return id;
     }
