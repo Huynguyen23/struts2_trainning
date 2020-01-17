@@ -4,31 +4,54 @@
    "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
 <constant name="struts.devMode" value="true" />
-   <package name="struts2" extends="struts-default">
-
-      <action name = "index" class="com.trainning.struts2.action.list.ListInitAction" method="excute">
+   <package name="list" namespace="/list" extends="struts-default">
+      <action name = "init" class="com.trainning.struts2.action.list.ListInitAction" method="excute">
          <result>views/List.jsp</result>
       </action>
 
-      <action name = "new" class="com.trainning.struts2.action.list.ListForwardAction" method="new_action">
-         <result type="redirectAction">new_action</result>
+      <action name = "forward" class="com.trainning.struts2.action.list.ListForwardAction" method="new_action">
+         <result type="redirectAction">
+            <param name="actionName"></param>
+            <param name="namespace">/new</param>
+         </result>
       </action>
 
-       <action name = "back" class="com.trainning.struts2.action.news.NewBackwardAction" method="excute">
+      <action name = "forward" class="com.trainning.struts2.action.list.ListForwardAction" method="edit_action">
+         <result type="chain">
+            <param name="actionName">edit_action</param>
+            <param name="namespace">/edit</param>
+         </result>
+      </action>
+
+      <action name = "delete" class="com.trainning.struts2.action.list.ListDeleteAction" method="excute">
+         <result type="redirectAction">
+         <param name="actionName">list_redisplay</param>
+            <param name="namespace">/Edit</param>
+         </result>
+      </action>
+
+      <action name = "list_redisplay" class="com.trainning.struts2.action.list.ListRedisplayAction" method="excute">
+         <result>views/List.jsp</result>
+      </action>
+   </package>
+
+   <package name="new" namespace="/new" extends="struts-default">
+
+      <action name = "back" class="com.trainning.struts2.action.news.NewBackwardAction" method="excute">
          <result type="redirectAction">index</result>
-      </action>
-
-      <action name = "product_edit" class="com.trainning.struts2.action.list.ListForwardAction" method="edit_action">
-         <result type="chain">edit_action</result>
-      </action>
-
-      <action name = "product_delete" class="com.trainning.struts2.action.list.ListDeleteAction" method="excute">
-         <result type="redirectAction">list_redisplay</result>
       </action>
 
       <action name = "new_action" class="com.trainning.struts2.action.news.NewInitAction" method="excute">
          <result name="success">views/New.jsp</result>
       </action>
+
+      <action name = "product_insert" class="com.trainning.struts2.action.news.NewRegisterAction" method="excute">
+         <result type="redirectAction">list_redisplay</result>
+      </action>
+
+   </package>
+
+   <package name="edit" namespace="/edit" extends="struts-default">
 
       <action name = "edit_action" class="com.trainning.struts2.action.edit.EditInitAction" method="excute">
          <result name="success">views/Edit.jsp</result>
@@ -37,15 +60,6 @@
       <action name = "edit_save" class="com.trainning.struts2.action.edit.EditUpdateAction" method="excute">
         <result type="redirectAction">list_redisplay</result>
       </action>
-
-      <action name = "product_insert" class="com.trainning.struts2.action.news.NewRegisterAction" method="excute">
-         <result type="redirectAction">list_redisplay</result>
-      </action>
-
-      <action name = "list_redisplay" class="com.trainning.struts2.action.list.ListRedisplayAction" method="excute">
-         <result>views/List.jsp</result>
-      </action>
-
 
    </package>
 </struts>

@@ -51,10 +51,10 @@ table.list thead {
         <s:iterator value="productList" id="product" status="pd">
           <tr>
           <td>
-                <a href="product_edit.action?submitType=id&id=<s:property value="#product.id"/>">
+                <a href="forward.action?submitType=id&id=<s:property value="#product.id"/>">
                       Update
                 </a>
-                <a href="product_delete.action?submitType=id&id=<s:property value="#product.id"/>">
+                <a href="delete.action?submitType=id&id=<s:property value="#product.id"/>">
                       Delete
                 </a>
           </td>
