@@ -31,7 +31,7 @@ table.list thead {
   <s:label>PRODUCT LIST</s:label>
 
   <br/>
-  <s:form id="productForm" class="productForm" theme="simple">
+  <s:form id="productForm" class="productForm" theme="simple" >
     <div class="control-btn">
       <s:submit name="new" value="New" action ="new"
                 onclick="this.form.action='new'" />
