@@ -14,8 +14,16 @@
          <result type="redirectAction">new_action</result>
       </action>
 
-      <action name = "edit" class="com.trainning.struts2.action.list.ListForwardAction" method="edit_action">
-         <result type="redirectAction">edit_action</result>
+       <action name = "back" class="com.trainning.struts2.action.news.NewBackwardAction" method="excute">
+         <result type="redirectAction">index</result>
+      </action>
+
+      <action name = "product_edit" class="com.trainning.struts2.action.list.ListForwardAction" method="edit_action">
+         <result type="chain">edit_action</result>
+      </action>
+
+      <action name = "product_delete" class="com.trainning.struts2.action.list.ListDeleteAction" method="excute">
+         <result type="redirectAction">list_redisplay</result>
       </action>
 
       <action name = "new_action" class="com.trainning.struts2.action.news.NewInitAction" method="excute">
@@ -24,6 +32,10 @@
 
       <action name = "edit_action" class="com.trainning.struts2.action.edit.EditInitAction" method="excute">
          <result name="success">views/Edit.jsp</result>
+      </action>
+
+      <action name = "edit_save" class="com.trainning.struts2.action.edit.EditUpdateAction" method="excute">
+        <result type="redirectAction">list_redisplay</result>
       </action>
 
       <action name = "product_insert" class="com.trainning.struts2.action.news.NewRegisterAction" method="excute">

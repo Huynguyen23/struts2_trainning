@@ -50,11 +50,16 @@ table.list thead {
       <tbody>
         <s:iterator value="productList" id="product" status="pd">
           <tr>
-          <td><s:submit name="edit" value="Edit" onclick="this.form.action='edit'"></s:submit></td>
+          <td>
+                <a href="product_edit.action?submitType=id&id=<s:property value="#product.id"/>">
+                      Update
+                </a>
+                <a href="product_delete.action?submitType=id&id=<s:property value="#product.id"/>">
+                      Delete
+                </a>
+          </td>
             <td><s:property value="#product.name" /></td>
 
-            <s:hidden name="productList[%{#pd.index}].name"
-                      value="%{#product.name}" />
           </tr>
         </s:iterator>
       </tbody>

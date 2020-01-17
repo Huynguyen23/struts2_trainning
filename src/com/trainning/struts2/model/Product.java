@@ -2,7 +2,7 @@ package com.trainning.struts2.model;
 
 import java.io.Serializable;
 
-public class Product implements Serializable {
+public class Product implements Serializable, Comparable<Product> {
     private int id;
     private String name;
     private String price;
@@ -57,5 +57,10 @@ public class Product implements Serializable {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return this.getId() - o.getId();
     }
 }

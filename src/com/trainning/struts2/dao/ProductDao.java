@@ -1,6 +1,7 @@
 package com.trainning.struts2.dao;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import com.trainning.struts2.model.Product;
 
@@ -14,6 +15,7 @@ public class ProductDao {
     }
 
     public ArrayList<Product> getAll() {
+        Collections.sort(productList);
         return productList;
     }
 
@@ -33,7 +35,7 @@ public class ProductDao {
     }
 
     public int update(Product pd) {
-
+        productList.remove(getById(pd.getId()));
         productList.add(pd);
         return 0;
     }

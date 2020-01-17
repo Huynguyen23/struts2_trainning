@@ -2,14 +2,11 @@ package com.trainning.struts2.action.list;
 
 import com.trainning.struts2.dao.ProductDao;
 
-public class ListForwardAction extends ProductDao {
+public class ListDeleteAction extends ProductDao {
     private int id;
 
-    public String new_action() {
-        return "success";
-    }
-
-    public String edit_action() {
+    public String excute() {
+        delete(getById(getId()));
         return "success";
     }
 
