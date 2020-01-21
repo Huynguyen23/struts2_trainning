@@ -34,7 +34,7 @@ table.list thead {
   <s:form id="productForm" class="productForm" theme="simple" >
     <div class="control-btn">
       <s:submit name="new" value="New"
-                onclick="this.form.action='new'" />
+                onclick="this.form.action='forward_new'" />
     </div>
     <div class="error-msg">
       <s:actionerror />
@@ -51,7 +51,7 @@ table.list thead {
         <s:iterator value="productList" id="product" status="pd">
           <tr>
           <td>
-                <a href="forward.action?submitType=id&id=<s:property value="#product.id"/>">
+                <a href="forward_edit.action?submitType=id&id=<s:property value="#product.id"/>">
                       Update
                 </a>
                 <a href="delete.action?submitType=id&id=<s:property value="#product.id"/>">

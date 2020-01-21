@@ -1,22 +1,7 @@
 package com.trainning.struts2.form;
 
-public class ListForm {
-    private String name;
-    private String price;
+import com.trainning.struts2.dao.ProductDao;
 
-    public String getName() {
-        return name;
-    }
+public class ListForm extends ProductDao {
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
 }

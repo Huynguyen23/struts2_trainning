@@ -19,6 +19,16 @@ public class ProductDao {
         return productList;
     }
 
+    public int createId() {
+
+        if (productList != null) {
+            Product productLast = productList.get(productList.size() - 1);
+            return productLast.getId() + 1;
+        }
+
+        return 0;
+    }
+
     public Product getById(int id) {
 
         for (Product product : productList) {
@@ -30,6 +40,8 @@ public class ProductDao {
     }
 
     public int insert(Product pd) {
+
+        pd.setId(createId());
         productList.add(pd);
         return 0;
     }

@@ -1,5 +1,7 @@
 package com.trainning.struts2.action.edit;
 
-public class EditBackwardAction {
+import com.opensymphony.xwork2.ActionSupport;
+
+public class EditBackwardAction extends ActionSupport {
 
 }
